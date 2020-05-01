@@ -7,9 +7,7 @@ class TaskFilter(filters.FilterSet):
     title = filters.CharFilter(lookup_expr='contains')
     completed = filters.BooleanFilter(lookup_expr='exact')
     category = filters.NumberFilter(lookup_expr='exact')
-    priority = [
-        filters.CharFilter(lookup_expr='exact')
-    ]
+    priority = filters.CharFilter(lookup_expr='exact')
 
     class Meta:
         model = Task

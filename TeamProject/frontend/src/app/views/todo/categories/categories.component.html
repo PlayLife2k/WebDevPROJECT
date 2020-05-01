@@ -24,7 +24,7 @@
       <li
         (click)="showTasksByCategory(category)" (mouseenter)="showEditIcon(index)"
         (mouseleave)="showEditIcon(null)"
-        *ngFor="let category of categories; let index = index "
+        *ngFor="let category of categories; let index = index"
         [class.active]="category === selectedCategory"
         class="nav-item pointer">
         <a class="nav-link">

@@ -16,7 +16,6 @@ export class TodoComponent implements OnInit {
   public categories: Category[]; // все категории
   public priorities: Priority[]; // все приоритеты
 
-
   public selectedCategory: Category = null;
 
   // поиск
@@ -87,7 +86,6 @@ export class TodoComponent implements OnInit {
     this.dataHandler.updateTask(task).subscribe(cat => {
       this.updateTasks();
     });
-
   }
 
   // удаление задачи

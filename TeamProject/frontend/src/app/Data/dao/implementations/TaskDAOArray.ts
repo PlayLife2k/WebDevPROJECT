@@ -16,8 +16,15 @@ export class TaskDAOArray implements TaskDAO {
   constructor(private http: HttpClient) { }
 
   add(task: Task): Observable<Task> {
-    console.log(task);
-    return this.http.post<Task>(this.url, task, this.httpOptions);
+    const body = {
+      title: task.title,
+      priority_id: task.priority.id,
+      completed: false,
+      category_id: task.category.id,
+      date: task.date
+    };
+    console.log(body);
+    return this.http.post<Task>(this.url, body, this.httpOptions);
   }
 
   getAll(): Observable<Task[]> {
@@ -85,7 +92,6 @@ export class TaskDAOArray implements TaskDAO {
       }
       filter += `title=${searchText}`;
     }
-
     return this.http.get<Task[]>(newurl + filter);
   }
 
@@ -93,5 +99,5 @@ export class TaskDAOArray implements TaskDAO {
     const newUrl = `${this.url}${task.id}`;
     return this.http.put<Task>(newUrl, task, this.httpOptions);
   }
-
 }
+ 

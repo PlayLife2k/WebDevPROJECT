@@ -31,7 +31,11 @@ import {registerLocaleData} from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { EditCategoryDialogComponent } from './dialog/edit-category-dialog/edit-category-dialog.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import { LandingComponent } from './views/landing/landing.component';
+import { LoginComponent } from './views/landing/login/login.component';
+import { RegistrationComponent } from './views/landing/registration/registration.component';
+import {AuthInterceptor} from "./interceptor";
 registerLocaleData(localeRu);
 
 @NgModule({
@@ -45,6 +49,9 @@ registerLocaleData(localeRu);
     ConfirmDialogComponent,
     TaskDatePipe,
     EditCategoryDialogComponent,
+    LandingComponent,
+    LoginComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,13 @@ registerLocaleData(localeRu);
     MatCheckboxModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   entryComponents: [
     EditTaskDialogComponent,
     ConfirmDialogComponent,

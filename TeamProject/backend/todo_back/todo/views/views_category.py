@@ -18,6 +18,7 @@ class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
     lookup_url_kwarg = 'category_id'
 
 
+
 class CategoryProductView(APIView):
 
     def get(self, request, category_id):
@@ -30,4 +31,3 @@ class CategoryProductView(APIView):
             return Response(serializer.data)
         except Exception as e:
             return Response(dict(error=str(e)))
-

@@ -11,5 +11,3 @@ class Task(models.Model):
     category = models.ForeignKey(Category, default='Без категорий', verbose_name='Category', on_delete=models.CASCADE, related_name='tasks')
     date = models.DateField(default=timezone.now().today)
 
-    class Meta:
-        ordering = ["-date"]

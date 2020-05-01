@@ -18,7 +18,6 @@ export class CategoriesComponent implements OnInit {
   @Input()
   selectedCategory: Category;
 
-
   // выбрали категорию из списка
   @Output()
   selectCategory = new EventEmitter<Category>();
@@ -62,7 +61,6 @@ export class CategoriesComponent implements OnInit {
   // сохраняет индекс записи категории, над который в данный момент проходит мышка (и там отображается иконка редактирования)
   public showEditIcon(index: number) {
     this.indexMouseMove = index;
-
   }
 
   // диалоговое окно для редактирования категории

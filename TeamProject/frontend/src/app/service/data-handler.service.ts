@@ -38,6 +38,7 @@ export class DataHandlerService {
     return this.taskDaoArray.delete(id);
   }
 
+
   // #####CATEGORIES##### //
   getAllCategories(): Observable<Category[]> {
     return this.categoryDaoArray.getAll();
@@ -62,6 +63,7 @@ export class DataHandlerService {
   getAllPriorities(): Observable<Priority[]> {
     return this.priorityDaoArray.getAll();
   }
+
 
   // #####FILTERING##### //
   // поиск задач по параметрам

@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Category, Task, Priority
-
+from django.contrib.auth.models import User
 
 class CategorySerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
@@ -27,6 +27,11 @@ class TaskSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Task
-        fields = ['id', 'title', 'completed', 'date', 'priority', 'priority_id', 'category', 'category_id']
+        fields = ['id', 'title', 'completed', 'date', 'priority', 'category', 'priority_id', 'category_id']
 
 
+class UserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'password']
